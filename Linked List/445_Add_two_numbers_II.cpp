@@ -8,6 +8,15 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+/*
+Iterative approach
+
+Check for either l1, l2 or carry and then calculate sum and carry accordingly
+
+Dummy head and tail are used for maintaing linked list for the sum
+*/
+
 class Solution {
 public:
 
@@ -26,18 +35,18 @@ public:
         l1 = reverseLL(l1);
         l2 = reverseLL(l2);
         int carry = 0;
-        ListNode *res = new ListNode(0);
-        ListNode *temp2 = res;
+        ListNode *dummyHead = new ListNode(0);
+        ListNode *tail = dummyHead;
         while(l1 || l2 || carry){
             int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;
             carry = sum/10;
             ListNode *temp = new ListNode(sum%10);
-            temp2->next = temp;
-            temp2 = temp;
+            tail->next = temp;
+            tail = temp;
             if (l1) l1 = l1->next;
             if (l2) l2 = l2->next;
         }
-        res = reverseLL(res->next);
-        return res;
+        dummyHead = reverseLL(dummyHead->next);
+        return dummyHead;
     }
 };
