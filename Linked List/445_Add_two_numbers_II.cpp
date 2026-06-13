@@ -49,4 +49,8 @@ public:
         dummyHead = reverseLL(dummyHead->next);
         return dummyHead;
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> f2837ee21bcb8b40f28781c5917de17cbbc7c5c6

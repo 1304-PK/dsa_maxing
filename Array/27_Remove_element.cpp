@@ -1,3 +1,11 @@
+/*
+Approach - Maintian two pointers and do a swap if i encounters val otherwise move i++
+
+In the end check if nums[i] is equal to val, if yes then return i else return i+1
+
+i is index in code but represents size of the result list
+*/
+
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
@@ -15,7 +23,6 @@ public:
             }
         }
 
-        while(i>=0 && nums[i]==val) i--;
-        return i+1;
+        return (nums[i]==val) ? i : i+1;
     }
 };
